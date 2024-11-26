@@ -1,0 +1,10 @@
+<h1 class="mb-5">This is the page where you can see all the cars to rent</h1>
+
+<% @cars.each do |car| %>
+  <ul class="mb-5">
+      <li><%= car.title %></li>
+      <li><%= car.description %></li>
+      <li><%= car.price_per_day %></li>
+      <li><%= link_to "See this car", car_path(car.id) %></li>
+  </ul>
+<% end %>
