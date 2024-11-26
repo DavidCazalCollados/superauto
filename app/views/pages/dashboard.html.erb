@@ -1,1 +1,10 @@
-<h1>Dashboard page</h1>
+<h1>Dashboard page, where you can see your bookings and the cars you rent</h1>
+<%= link_to "Rent a car", new_car_path %>
+
+<% @cars.each do |car| %>
+  <ul class="mt-5">
+      <li><%= car.title %></li>
+      <li><%= car.description %></li>
+      <li><%= car.price_per_day %></li>
+  </ul>
+<% end %>
