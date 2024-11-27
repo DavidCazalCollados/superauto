@@ -1,3 +1,12 @@
-<h1>Pages#home</h1>
+<h1>Superauto Homepage</h1>
 
-<p>Find me in app/views/pages/home.html.erb</p>
+<ul>
+  <li><%= link_to "Go to list of all cars", cars_path %></li>
+  <li><%= link_to "Go to my profile (dashboard), where you can see the cars you rent (if you already have an account)", dashboard_path %></li>
+  <li><%= link_to "Sign up", new_user_registration_path %></li>
+  <li><%= link_to "Sign in", user_session_path %></li>
+  <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %></li>
+</ul>
+
+<h1 style="color: red;">Those links have to be implemented to the navbar</h1>
+
