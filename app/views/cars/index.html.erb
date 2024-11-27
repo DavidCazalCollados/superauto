@@ -5,6 +5,7 @@
       <li><%= car.title %></li>
       <li><%= car.description %></li>
       <li><%= car.price_per_day %></li>
+      <li>Owner: <%= car.user.first_name %> <%= car.user.last_name %></li>
       <li><%= link_to "See this car", car_path(car.id) %></li>
   </ul>
 <% end %>
