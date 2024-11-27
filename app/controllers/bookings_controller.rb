@@ -10,9 +10,9 @@ class BookingsController < ApplicationController
     @booking.car = @car
     @booking.user = current_user
     if @booking.save
-      redirect_to dashboard_path, notice: "Booking created succesfully"
+      redirect_to dashboard_path, notice: "Booking created successfully"
     else
-      render :new, status: :unprocessable_entity, notice: "something went wrong"
+      render :new, status: :unprocessable_entity, notice: "Something went wrong"
     end
   end
 
