@@ -1,0 +1,39 @@
+<div class="navbar text-center navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag("https://scontent-lga3-2.xx.fbcdn.net/v/t39.30808-6/242774576_370949031050283_6018611053316984107_n.png?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=IXoHVtfpaxYQ7kNvgFK-2gu&_nc_zt=23&_nc_ht=scontent-lga3-2.xx&_nc_gid=AlBR6BwXAGMhK5kmjCkLjrO&oh=00_AYDvurPewaIXbdhgvGDQEpEmixTshkndMTngfbOpG_F5og&oe=674AB721", alt: "Nav Icon",  ) %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <%# if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Cars", cars_path, class: "text-decoration-none nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "My Cars", dashboard_path, class: "text-decoration-none nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "My Bookings", new_user_registration_path, class: "text-decoration-none nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <%= image_tag "https://swaleocean.co.uk/wp-content/uploads/2014/12/blank-profile.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to "Login", "#", class: "dropdown-item" %>
+            <%= link_to "Sign up", "#", class: "dropdown-item" %>
+            <%# link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+          </div>
+        </li>
+        <%# else %>
+          <!--li class="nav-item"-->
+            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <!--/li-->
+        <%# end %>
+      </ul>
+    </div>
+  </div>
+</div>
