@@ -12,13 +12,13 @@
       <ul class="navbar-nav me-auto">
         <%# if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Cars", "#", class: "text-decoration-none nav-link" %>
+          <%= link_to "Cars", cars_path, class: "text-decoration-none nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "My Cars", "#", class: "text-decoration-none nav-link" %>
+          <%= link_to "My Cars", dashboard_path, class: "text-decoration-none nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "My Bookings", "#", class: "text-decoration-none nav-link" %>
+          <%= link_to "My Bookings", new_user_registration_path, class: "text-decoration-none nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://swaleocean.co.uk/wp-content/uploads/2014/12/blank-profile.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
