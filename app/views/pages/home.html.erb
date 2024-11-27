@@ -2,11 +2,11 @@
 <p>Explore a new city with our car rentals.</p>
 
 <%= link_to 'Browse Cars', cars_path, class: 'btn btn-primary' %>
-<%= link_to 'List Your Car', new_car_path, class: 'btn btn-secondary' %>
+<%= link_to 'Go to Profile', dashboard_path, class: 'btn btn-secondary' %>
+
 <% if user_signed_in? %>
-  <p>Welcome back, <%= current_user.name %>!</p>
-  <%= link_to 'My Reservations', user_reservations_path(current_user), class: 'btn btn-info' %>
+  <%= link_to 'Log Out', destroy_user_session_path, class: 'btn btn-warning', data: { turbo_method: :delete } %>
 <% else %>
-  <%= link_to 'Sign Up', new_user_path, class: 'btn btn-success' %>
-  <%= link_to 'Log In', new_session_path, class: 'btn btn-warning' %>
+  <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-success' %>
+  <%= link_to 'Sign In', new_session_path, class: 'btn btn-warning' %>
 <% end %>
