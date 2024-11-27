@@ -15,11 +15,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_27_201237) do
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "car_id", null: false
-    t.integer "user_id", null: false
-    t.datetime "start_date", null: false
-    t.datetime "end_date", null: false
-    t.string "status", default: "pending", null: false
+    t.string "start_date", null: false
+    t.string "end_date", null: false
+    t.boolean "accepted"
+    t.bigint "user_id", null: false
+    t.bigint "car_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["car_id"], name: "index_bookings_on_car_id"
