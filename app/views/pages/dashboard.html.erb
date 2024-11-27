@@ -12,8 +12,8 @@
   </div>
 
   <div class="col-6 mt-5">
-    <%  %>
     <% @bookings.each do |booking| %>
+    <div><%= booking.car.user.first_name %> <%= booking.car.user.last_name %></div>
       <div><%= booking.start_date %></div>
       <div><%= booking.end_date %></div>
     <% end %>
