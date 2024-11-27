@@ -4,4 +4,5 @@
   <li><%= @car.title %></li>
   <li><%= @car.description %></li>
   <li><%= @car.price_per_day %></li>
+  <li><%= link_to "Book this car", new_car_booking_path(@car) %></li>
 </ul>
