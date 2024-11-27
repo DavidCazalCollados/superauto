@@ -1,1 +1,52 @@
 // Specific CSS for your home-page
+// app/assets/stylesheets/home.scss
+body {
+  background-color: #000000;
+  /* Black background */
+  font-family: 'Roboto', sans-serif;
+  /* Use Roboto font */
+}
+
+h1,
+p {
+  color: #ffffff;
+  /* White text color */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin-top: 50px;
+  font-weight: 700;
+  /* Bold for headers */
+}
+
+p {
+  font-weight: 400;
+  /* Regular weight for paragraphs */
+}
+
+.btn {
+  display: block;
+  width: 200px;
+  margin: 10px auto;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #000000;
+  /* Black text color */
+  background-color: #ffffff;
+  /* White background */
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  /* Use Roboto font for buttons */
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-success,
+.btn-warning,
+.btn-info {
+  background-color: #ffffff;
+  /* White background */
+}
