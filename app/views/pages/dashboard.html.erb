@@ -1,10 +1,21 @@
 <h1>Dashboard page, where you can see your bookings and the cars you rent</h1>
 <%= link_to "Rent a car", new_car_path %>
 
-<% @cars.each do |car| %>
-  <ul class="mt-5">
-      <li><%= car.title %></li>
-      <li><%= car.description %></li>
-      <li><%= car.price_per_day %></li>
+
+<div class="row">
+  <div class="col-6 p-5 mt-5">
+    <% @cars.each do |car| %>
+          <div><%= car.title %></div>
+          <div><%= car.description %></div>
+          <div><%= car.price_per_day %></div>
+    <% end %>
+  </div>
+
+  <div class="col-6 mt-5">
+    <%  %>
+    <% @bookings.each do |booking| %>
+      <div><%= booking.start_date %></div>
+      <div><%= booking.end_date %></div>
+    <% end %>
   </ul>
-<% end %>
+</div>
