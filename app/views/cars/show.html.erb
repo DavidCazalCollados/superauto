@@ -1,8 +1,8 @@
-<h1>This is the show page</h1>
-
-<ul>
-  <li><%= @car.title %></li>
+<div class="car-container d-flex flex-column mt-5">
+  <div class="car-picture mb-4">
+  </div>
+  <h1><%= @car.title %></h1>
   <li><%= @car.description %></li>
   <li><%= @car.price_per_day %></li>
   <li><%= link_to "Book this car", new_car_booking_path(@car) %></li>
-</ul>
+</div>
