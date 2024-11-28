@@ -1,21 +1,39 @@
-<h1>Dashboard page, where you can see your bookings and the cars you rent</h1>
-<%= link_to "Rent a car", new_car_path %>
-
+<div class="dashboard-header">
+  <h1>My SuperAuto Dashboard</h1>
+  <h2 class="center-text">Keep Track of Rentals and Listings</h2>
+</div>
 
 <div class="row">
-  <div class="col-6 p-5 mt-5">
-    <% @cars.each do |car| %>
-          <div><%= car.title %></div>
-          <div><%= car.description %></div>
-          <div><%= car.price_per_day %></div>
+  <!-- Bookings Column -->
+  <div class="col-md-6 p-5">
+    <div class="text-center">
+      <h2>My Bookings</h2>
+      <%= link_to "Rent a car", cars_path, class: "btn btn-primary mb-4" %>
+    </div>
+    <% @bookings.each do |booking| %>
+      <div class="card mb-4">
+        <div class="card-body">
+          <p class="card-text"><strong>Car:</strong> <%= booking.car.title %></p>
+          <p class="card-text"><strong>Owner:</strong> <%= booking.car.user.first_name %> <%= booking.car.user.last_name %></p>
+          <p class="card-text"><strong>Start Date:</strong> <%= booking.start_date %></p>
+          <p class="card-text"><strong>End Date:</strong> <%= booking.end_date %></p>
+        </div>
+      </div>
     <% end %>
   </div>
 
-  <div class="col-6 mt-5">
-    <% @bookings.each do |booking| %>
-    <div><%= booking.car.user.first_name %> <%= booking.car.user.last_name %></div>
-      <div><%= booking.start_date %></div>
-      <div><%= booking.end_date %></div>
+  <!-- Listed Cars Column -->
+  <div class="col-md-6 p-5">
+    <h2 class="center-text">My Listed Cars</h2>
+    <%= link_to "Add Another Car", new_car_path, class: "btn btn-primary mb-4" %>
+    <% @cars.each do |car| %>
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title"><%= car.title %></h5>
+          <p class="card-text"><%= car.description %></p>
+          <p class="card-text"><strong>Price per day:</strong> $<%= car.price_per_day %></p>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
