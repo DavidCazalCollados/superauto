@@ -5,19 +5,49 @@ body {
   /* Use Poppins font */
   font-family: "Poppins", sans-serif;
 }
-h2, h3, h4, h5, h6 {
-  font-weight: 700;
+
+.dashboard-header {
+  background-image: url('https://rev-ai.io/wp-content/uploads/2022/03/Transaction-Tracking-and-Analytics-Steering-Car-Rental-banner.webp');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 50px 0;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  /* Added text shadow */
 }
+
+.dashboard-header h1,
+.dashboard-header h2 {
+  margin: 0;
+  padding: 10px;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  /* Added font-weight for all headers */
+}
+
+.center-text {
+  text-align: center;
+}
+
 h1,
+p {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
 h1 {
   font-weight: 700;
-  /* Bold for headers */
 }
 
 p {
   font-weight: 400;
-  /* Regular weight for paragraphs */
 }
 
 .btn {
@@ -28,12 +58,9 @@ p {
   text-align: center;
   text-decoration: none;
   color: #000000;
-  /* Black text color */
   background-color: #ffffff;
-  /* White background */
   border-radius: 5px;
   font-family: 'Roboto', sans-serif;
-  /* Use Roboto font for buttons */
 }
 
 .btn-primary,
@@ -42,5 +69,4 @@ p {
 .btn-warning,
 .btn-info {
   background-color: #ffffff;
-  /* White background */
 }
