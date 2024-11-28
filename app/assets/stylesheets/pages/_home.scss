@@ -1,6 +1,11 @@
 // Specific CSS for your home-page
 // app/assets/stylesheets/home.scss
 
+body {
+  /* Use Poppins font */
+  font-family: "Poppins", sans-serif;
+}
+
 h1,
 p {
   /* White text color */
