@@ -6,3 +6,11 @@
   <li><%= @car.price_per_day %></li>
   <li><%= link_to "Book this car", new_car_booking_path(@car) %></li>
 </ul>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <%= image_tag @car.photo.key, class: "img-fluid" %>
+    </div>
+  </div>
+</div>
