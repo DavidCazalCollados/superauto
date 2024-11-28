@@ -3,7 +3,12 @@ class CarsController < ApplicationController
   before_action :set_car, only: :show
 
   def index
-    @cars = Car.all
+    if params[:search].present?
+      sql_subquery = "title ILIKE :query OR description ILIKE :query"
+      @cars = Car.where(sql_subquery, query: "%#{params[:search]}%")
+    else
+      @cars = Car.all
+    end
   end
 
   def show
