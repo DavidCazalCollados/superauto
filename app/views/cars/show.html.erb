@@ -7,8 +7,8 @@
       <h6 class="mt-4">DESCRIPTION</h6>
       <p><%= @car.description %></p>
     </div>
-    <div class="d-flex flex-column">
-      <h5>Total: <strong><%= @car.price_per_day %>$</strong></h5>
+    <div class="d-flex flex-column" data-controller="total-price">
+      <h5 data-total-price-target="pricePerDay"><%= @car.price_per_day %></h5>
       <%= render "bookings/booking_form", car: @car , booking: @booking %>
     </div>
   </div>
