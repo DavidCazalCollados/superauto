@@ -1,9 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_car, only: [:new, :create]
-
-  def new
-    @booking = Booking.new
-  end
+  before_action :set_car, only: :create
 
   def create
     @booking = Booking.new(booking_params)
@@ -12,7 +8,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to dashboard_path, notice: "Booking created successfully"
     else
-      render :new, status: :unprocessable_entity, notice: "Something went wrong"
+      render "cars/show", status: :unprocessable_entity, notice: "Something went wrong"
     end
   end
 
