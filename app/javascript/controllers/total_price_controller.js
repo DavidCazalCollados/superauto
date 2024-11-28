@@ -6,9 +6,9 @@ export default class extends Controller {
 
   connect() {
     console.log("Hello from our first Stimulus controller");
+    console.log(this.pricePerDayTarget.innerText)
   }
 
   price() {
-
   }
 }
