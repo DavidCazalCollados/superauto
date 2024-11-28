@@ -23,6 +23,15 @@ body {
   padding: 10px;
 }
 
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  /* Added font-weight for all headers */
+}
+
 .center-text {
   text-align: center;
 }
@@ -34,7 +43,6 @@ p {
 }
 
 h1 {
-  margin-top: 50px;
   font-weight: 700;
 }
 
