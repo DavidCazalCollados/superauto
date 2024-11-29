@@ -1,7 +1,7 @@
 <div class="navbar text-center navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag("https://banner2.cleanpng.com/20180809/fz/kisspng-logo-brand-product-design-font-superauto-superauto-5b6c327123ec91.3115616215338174571472.jpg", alt: "Nav Icon", class: "menu_icon", height: '250', width: '200') %>
+      <%= image_tag("logo", alt: "Nav Icon", class: "menu_icon") %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,6 +13,9 @@
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "Home", root_path, class: "text-decoration-none nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Cars", cars_path, class: "text-decoration-none nav-link" %>
           </li>
           <li class="nav-item">
             <%# Replace the hash symbol with the my_bookings_path once the page is created %>
