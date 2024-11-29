@@ -3,7 +3,15 @@
 }
 
 .car-picture {
-  background-color: red;
+  background-image: url('https://images.vexels.com/media/users/3/154661/isolated/preview/7288653d1853bbc9f5e2a844ffadb763-luxury-car-side-view-silhouette.png');
+  background-size: cover;
+  background-position: center;
   height: 400px;
   border-radius: 7px;
+}
+
+.car-info,
+.booking-info {
+  border: 2px solid #000;
+  padding: 10px;
 }
