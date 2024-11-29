@@ -3,82 +3,78 @@
   <h2 class="center-text">Keep Track of Rentals and Listings</h2>
 </div>
 
-<div class="row">
-  <div class="col-md-6 p-5">
+<div class="d-flex flex-column container">
+  <div class="d-flex flex-column card-box py-5 mt-5 mx-4">
     <h2 class="center-text">My Listed Cars</h2>
     <%= link_to "Add Another Car", new_car_path, class: "btn btn-primary mb-4" %>
-    <% @cars.each do |car| %>
-      <div class="card mb-4">
-        <div class="d-flex justify-content-around">
-          <div class="card-body">
-            <h5 class="card-title"><%= car.title %></h5>
-            <p class="card-text"><%= car.description %></p>
-            <p class="card-text"><strong>Price per day:</strong> $<%= car.price_per_day %></p>
-          </div>
-          <div class="card-body">
-          </div>
+        <div class="row justify-content-evenly mt-4">
+          <% @cars.each do |car| %>
+            <div class="col-4 card">
+              <p><strong><%= car.title %></strong></p>
+              <p><%= car.description %></p>
+              <p><strong>Price per day:</strong> $<%= car.price_per_day %></p>
+            </div>
+          <% end %>
         </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<div class="row">
-  <!-- Bookings Column -->
-  <div class="col-md-6 p-5">
-    <div class="text-center">
-      <h2>My Bookings</h2>
-      <%= link_to "Rent a car", cars_path, class: "btn btn-primary mb-4" %>
-    </div>
-    <% @bookings.each do |booking| %>
-      <div class="card mb-4">
-        <div class="d-flex justify-content-around">
-          <div class="card-body">
-            <p class="card-text"><strong>Car:</strong> <%= booking.car.title %></p>
-            <p class="card-text"><strong>Owner:</strong> <%= booking.car.user.first_name %> <%= booking.car.user.last_name %></p>
-            <p class="card-text"><strong>Start Date:</strong> <%= booking.start_date %></p>
-            <p class="card-text"><strong>End Date:</strong> <%= booking.end_date %></p>
-          </div>
-          <div class="card-body">
-            <p><strong>STATUS</strong></p>
-            <% if booking.accepted %>
-              <p>Accepted!</p>
-            <% elsif booking.accepted == false %>
-              <p>Rejected</p>
-            <% else %>
-              <p class="pending">Pending</p>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% end %>
   </div>
 
-  <!-- Listed Cars Column -->
-  <div class="col-md-6 p-5">
-    <h2 class="center-text">Bookings for my cars</h2>
-    <% @bookings_as_owner.each do |owner_booking| %>
-      <div class="card mb-4">
-        <div class="d-flex justify-content-around">
-          <div class="card-body">
-            <h5 class="card-title mb-3"><%= owner_booking.user.first_name %> <%= owner_booking.user.last_name %></h5>
-            <div class="dates-rquest">
-              <p class="card-text">Dates requested:</p>
-              <p class="card-text"><strong>From <%= owner_booking.start_date %> to <%= owner_booking.end_date %></strong></p>
+  <div class="d-flex justify-content-between mx-4">
+    <!-- Bookings Column -->
+    <div class="mt-5">
+      <div class="text-center">
+        <h2 class="mb-4">My Bookings</h2>
+        <%= link_to "Rent a car", cars_path, class: "btn btn-primary mb-4" %>
+      </div>
+      <% @bookings.each do |booking| %>
+        <div class="card mb-4">
+          <div class="d-flex justify-content-around">
+            <div class="card-body">
+              <p class="card-text"><strong>Car:</strong> <%= booking.car.title %></p>
+              <p class="card-text"><strong>Owner:</strong> <%= booking.car.user.first_name %> <%= booking.car.user.last_name %></p>
+              <p class="card-text"><strong>Start Date:</strong> <%= booking.start_date %></p>
+              <p class="card-text"><strong>End Date:</strong> <%= booking.end_date %></p>
+            </div>
+            <div class="card-body">
+              <p><strong>STATUS</strong></p>
+              <% if booking.accepted %>
+                <p>Accepted!</p>
+              <% elsif booking.accepted == false %>
+                <p>Rejected</p>
+              <% else %>
+                <p class="pending">Pending</p>
+              <% end %>
             </div>
           </div>
-          <div class="card-body">
-            <%= simple_form_for(owner_booking, url: booking_status_path(owner_booking), mehtod: :patch) do |f| %>
-              <%# f.input :accepted, input_html: { checked: true }, as: :hidden %>
-              <%= f.submit "Accept", class: "btn btn-outline-success" %>
-            <% end %>
-            <%= simple_form_for(owner_booking, url: booking_status_path(owner_booking), mehtod: :patch) do |f| %>
-              <%# f.input :accepted, input_html: { checked: true }, as: :hidden %>
-              <%= f.submit "Refuse", class: "btn btn-outline-danger" %>
-            <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Listed Cars Column -->
+    <div class="mt-5">
+      <h2 class="center-text">Bookings for my cars</h2>
+      <% @bookings_as_owner.each do |owner_booking| %>
+        <div class="card mb-4">
+          <div class="d-flex justify-content-around">
+            <div class="card-body">
+              <h5 class="card-title mb-3"><%= owner_booking.user.first_name %> <%= owner_booking.user.last_name %></h5>
+              <div class="dates-rquest">
+                <p class="card-text">Dates requested:</p>
+                <p class="card-text"><strong>From <%= owner_booking.start_date %> to <%= owner_booking.end_date %></strong></p>
+              </div>
+            </div>
+            <div class="card-body">
+              <%= simple_form_for(owner_booking, url: booking_status_path(owner_booking), mehtod: :patch) do |f| %>
+                <%# f.input :accepted, input_html: { checked: true }, as: :hidden %>
+                <%= f.submit "Accept", class: "btn btn-outline-success" %>
+              <% end %>
+              <%= simple_form_for(owner_booking, url: booking_status_path(owner_booking), mehtod: :patch) do |f| %>
+                <%# f.input :accepted, input_html: { checked: true }, as: :hidden %>
+                <%= f.submit "Refuse", class: "btn btn-outline-danger" %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
