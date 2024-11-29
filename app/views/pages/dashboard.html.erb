@@ -57,7 +57,7 @@
   <!-- Listed Cars Column -->
   <div class="col-md-6 p-5">
     <h2 class="center-text">Bookings for my cars</h2>
-    <% current_user.bookings_as_owner.each do |owner_booking| %>
+    <% @bookings_as_owner.each do |owner_booking| %>
       <div class="card mb-4">
         <div class="d-flex justify-content-around">
           <div class="card-body">
@@ -66,12 +66,16 @@
               <p class="card-text">Dates requested:</p>
               <p class="card-text"><strong>From <%= owner_booking.start_date %> to <%= owner_booking.end_date %></strong></p>
             </div>
-            <div class="total-price-owner">
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-            </div>
           </div>
           <div class="card-body">
+            <%= simple_form_for(owner_booking, url: booking_status_path(owner_booking), mehtod: :patch) do |f| %>
+              <%# f.input :accepted, input_html: { checked: true }, as: :hidden %>
+              <%= f.submit "Accept", class: "btn btn-outline-success" %>
+            <% end %>
+            <%= simple_form_for(owner_booking, url: booking_status_path(owner_booking), mehtod: :patch) do |f| %>
+              <%# f.input :accepted, input_html: { checked: true }, as: :hidden %>
+              <%= f.submit "Refuse", class: "btn btn-outline-danger" %>
+            <% end %>
           </div>
         </div>
       </div>
