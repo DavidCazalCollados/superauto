@@ -19,12 +19,14 @@ export default class extends Controller {
 
     const diffTime = ((endDate) - (startDate)) / daysConvert;
 
-    const intDateDays = (parseInt(this.pricePerDayTarget.innerText, 10));
+    const intPricePerDay = (parseInt(this.pricePerDayTarget.innerText, 10));
 
     if (endDate >= startDate) {
-      const intDate = intDateDays * diffTime
+      const intPrice = intPricePerDay * diffTime
 
-      this.pricePerDayTarget.innerText = `Total: ${intDate}$`
+      this.pricePerDayTarget.innerText = `Total: ${intPrice}$`
     }
+    else
+      this.pricePerDayTarget.innerText
   }
 }
