@@ -3,12 +3,12 @@
   <h2 class="center-text">Keep Track of Rentals and Listings</h2>
 </div>
 
-<div class="row">
-  <div class="col-md-6 p-5">
-    <h2 class="center-text">My Listed Cars</h2>
-    <%= link_to "Add Another Car", new_car_path, class: "btn btn-primary mb-4" %>
+<div class="d-flex flex-column card-box mt-5 mx-5">
+  <h2 class="center-text mt-4">My Listed Cars</h2>
+  <%= link_to "Add Another Car", new_car_path, class: "btn btn-primary mb-4" %>
+  <div class="d-flex justify-content-around mx-5">
     <% @cars.each do |car| %>
-      <div class="card mb-4">
+      <div class="card my-5">
         <div class="d-flex justify-content-around">
           <div class="card-body">
             <h5 class="card-title"><%= car.title %></h5>
