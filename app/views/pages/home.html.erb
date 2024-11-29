@@ -1,12 +1,21 @@
-<h1>Welcome to SuperAuto</h1>
-<p>Explore a new city with our car rentals.</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/premium-photo/luxury-sports-car-paris-with-eiffel-tower-background_1301196-8953.jpg);">
+  <div class="container">
+    <h1>Welcome to <strong>Super Auto</strong></h1>
+    <p>Explore a new city with our car rentals.</p>
+    <a class="btn btn-success" href=dashboard_path>See All Cars</a>
+  </div>
+</div>
 
-<%= link_to 'Browse Cars', cars_path, class: 'btn btn-primary' %>
-<%= link_to 'Go to Profile', dashboard_path, class: 'btn btn-secondary' %>
-
-<% if user_signed_in? %>
-  <%= link_to 'Log Out', destroy_user_session_path, class: 'btn btn-warning', data: { turbo_method: :delete } %>
-<% else %>
-  <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-success' %>
-  <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-warning' %>
-<% end %>
+<%# <div class="container">
+  <h2 class="text-center mt-5">How it works</h2>
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">1. Find a car</h5>
+          <p class="card-text">Browse our selection of cars and find the perfect one for your trip.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  %>
