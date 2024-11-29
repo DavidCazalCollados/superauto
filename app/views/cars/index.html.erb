@@ -1,23 +1,32 @@
-<h1 class="mb-5">Browse Available Cars for Rent</h1>
+<div class="dashboard-header mb-5"> <!-- Increased margin-bottom class to mb-5 -->
+  <h1>Browse Available Cars for Rent</h1>
+  <h2 class="center-text">Find the Perfect Car for Your Needs</h2>
+</div>
 
-<%= form_with url: cars_path, method: :get, local: true, class: 'mb-5' do %>
-  <%= label_tag :search, "Search for a car:" %>
+<%= form_with url: cars_path, method: :get, local: true, id: 'search-form', class: 'mb-5' do %>
+  <div style="text-align: center; margin-bottom: 20px;"> <!-- Added inline style for extra margin -->
+    <%= label_tag :search, "Search for a car (by title, description, etc.):" %>
+  </div>
   <%= text_field_tag :search, params[:search], class: 'form-control' %>
-  <%= submit_tag "Search", class: "btn btn-primary mt-3" %>
+  <%= submit_tag "Search", class: "btn btn-primary mt-3", id: 'search-button' %>
 <% end %>
 
-<div class="cars-list row">
-  <% @cars.each do |car| %>
-    <div class="col-md-4 mb-5">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><%= car.title %></h5>
-          <p class="card-text"><%= car.description %></p>
-          <p class="card-text">Price per day: $<%= car.price_per_day %></p>
-          <p class="card-text">Owner: <%= car.user.first_name %> <%= car.user.last_name %></p>
-          <%= link_to "See this car", car_path(car.id), class: "btn btn-secondary" %>
+<% if @cars.any? %>
+  <div class="cars-list row">
+    <% @cars.each do |car| %>
+      <div class="col-md-4 mb-5">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= car.title %></h5>
+            <p class="card-text"><%= car.description %></p>
+            <p class="card-text">Price per day: $<%= car.price_per_day %></p>
+            <p class="card-text">Owner: <%= car.user.first_name %> <%= car.user.last_name %></p>
+            <%= link_to "See this car", car_path(car.id), class: "btn btn-secondary" %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% else %>
+  <p>No cars found matching your search criteria.</p>
+<% end %>
