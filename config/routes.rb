@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     resources :bookings, only: :create
   end
   get "dashboard", to: "pages#dashboard"
+  patch "bookings/:id/status", to: "bookings#status", as: "booking_status"
 end
