@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="total-price"
 export default class extends Controller {
-  static targets = ["pricePerDay", "startDate", "endDate"]
+  static targets = ["pricePerDay", "startDate", "endDate", "total"]
 
   connect() {
     console.log("Hello from our first Stimulus controller");
@@ -24,9 +24,9 @@ export default class extends Controller {
     if (endDate >= startDate) {
       const intPrice = intPricePerDay * diffTime
 
-      this.pricePerDayTarget.innerText = `Total: ${intPrice}$`
+      this.totalTarget.innerText = intPrice
     }
     else
-      this.pricePerDayTarget.innerText
+      this.totalTarget.innerText = 0
   }
 }
