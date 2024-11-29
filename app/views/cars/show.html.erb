@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="car-container d-flex flex-column mt-5">
   <div class="dashboard-header mb-5"> <!-- Added 'mb-5' for margin-bottom -->
     <h1>Car Details</h1>
@@ -18,6 +19,21 @@
         <h5>$</h5>
       </div>
       <%= render "bookings/booking_form", car: @car, booking: @booking %>
+=======
+<h1>This is the show page</h1>
+
+<ul>
+  <li><%= @car.title %></li>
+  <li><%= @car.description %></li>
+  <li><%= @car.price_per_day %></li>
+  <li><%= link_to "Book this car", new_car_booking_path(@car) %></li>
+</ul>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <%= image_tag @car.photo.key, class: "img-fluid" %>
+>>>>>>> 5a580f2dcf68caae17ca0fe6565ca5234ff42688
     </div>
   </div>
 </div>
