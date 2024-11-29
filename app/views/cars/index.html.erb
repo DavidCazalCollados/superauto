@@ -1,4 +1,7 @@
-<h1 class="mb-5">Browse Available Cars for Rent</h1>
+<div class="dashboard-header mb-5"> <!-- Increased margin-bottom class to mb-5 -->
+  <h1>Browse Available Cars for Rent</h1>
+  <h2 class="center-text">Find the Perfect Car for Your Needs</h2>
+</div>
 
 <%= form_with url: cars_path, method: :get, local: true, id: 'search-form', class: 'mb-5' do %>
   <%= label_tag :search, "Search for a car (by title, description, etc.):" %>
