@@ -4,9 +4,7 @@
 </div>
 
 <%= form_with url: cars_path, method: :get, local: true, id: 'search-form', class: 'mb-5' do %>
-  <div style="text-align: center; margin-bottom: 20px;"> <!-- Added inline style for extra margin -->
-    <%= label_tag :search, "Search for a car (by title, description, etc.):" %>
-  </div>
+  <%= label_tag :search, "Search for a car (by title, description, etc.):" %>
   <%= text_field_tag :search, params[:search], class: 'form-control' %>
   <%= submit_tag "Search", class: "btn btn-primary mt-3", id: 'search-button' %>
 <% end %>
